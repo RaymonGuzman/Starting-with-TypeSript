@@ -1,27 +1,30 @@
 /*
-Working with Enums
+Working with TypeScript object vs JavaScript Object
 Enums allow us to define a set of named constants
 */
 
-//number
-enum numbers {
-    one=1,
-    two=2,
-    three=3,
-    four=4
+// object
+let persona: object;
+
+persona = {
+    nombre:'Juan Perez',
+    edad:24,
+    estatura: `'6'0'`,
+    pais: 'República Dominicana',
+    estatus:'Soltero'
 }
 
-console.log(numbers);
+//it can't be accesed calling persona.nombre!
+// console.log(persona.nombre);
+console.log(persona);
 
-//string
-enum names {
-    Perro='Wau',
-    Gato='Miau',
-    Vaca='Muuu',
-    Gallina='Cocorocoo'
+let numeros = {
+    uno:1,
+    dos:2,
+    tres:3,
+    cuatro:4
 }
 
-console.log(names);
-
-console.log('Imprimiendo el número cuatro', numbers.four);
-console.log('Imprimiendo el sonido de la vaca', names.Vaca);
+console.log(numeros);
+//it can be accesed of this way!
+console.log(numeros.cuatro);
