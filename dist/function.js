@@ -9,33 +9,43 @@ var sexo;
     sexo["M"] = "Masculino";
     sexo["F"] = "Femenino";
 })(sexo || (sexo = {}));
-function userData(nombre, edad, ocupation, sex) {
-    if (edad <= 18) {
-        console.log("Nombre: " + nombre + ", Edad: " + edad + ", ocupaci\u00F3n: " + ocupacion.EE + ", sexo: " + sexo.M);
+function userData(user) {
+    if (user.edad <= 18) {
+        console.log("Nombre: " + user.nombre + ", Edad: " + user.edad + ", ocupaci\u00F3n: " + ocupacion.EE + ", sexo: " + user.sex);
     }
     else {
-        console.log("Nombre: " + nombre + ", Edad:" + edad + ", ocupaci\u00F3n: " + ocupacion.EU + ", sexo: " + sexo.M);
+        console.log("Nombre: " + user.nombre + ", Edad:" + user.edad + ", ocupaci\u00F3n: " + ocupacion.EU + ", sexo: " + user.sex);
     }
 }
-userData('Raymon', 25);
+userData({ nombre: 'Raymon', edad: 25, sex: sexo.M });
 //Using function in a let variable
-var createUser = function (name, edad, ocupation, sex) {
-    if (edad <= 18) {
+var createUser = function (user) {
+    if (user.edad <= 18) {
         return {
-            name: name,
-            edad: edad,
-            ocupacion: ocupacion.EE,
+            Nombre: user.nombre,
+            Edad: user.edad,
+            Ocupacion: ocupacion.EE,
             sexo: sexo.M
         };
     }
     else {
         return {
-            name: name,
-            edad: edad,
-            ocupacion: ocupacion.EU,
+            Nombre: user.nombre,
+            Edad: user.edad,
+            Ocupacion: ocupacion.EU,
             sexo: sexo.M
         };
     }
 };
-var Raymon = createUser('Raymon', 17);
+var Raymon = createUser({ nombre: 'Raymon', edad: 17 });
 console.log(Raymon);
+function getAntoherUser(user) {
+    console.log("[\n        Nombre: " + user.nombre + ",\n        Edad: " + user.edad + ",\n        Ocupacion: " + user.ocupation + ",\n        Sexo: " + user.sex + "\n    ]");
+}
+var Karla = {
+    nombre: 'Karla',
+    edad: 28,
+    ocupation: ocupacion.EE,
+    sex: sexo.F
+};
+getAntoherUser(Karla);

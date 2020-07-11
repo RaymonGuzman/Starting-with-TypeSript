@@ -8,34 +8,60 @@ enum sexo {
     F = 'Femenino'
 }
 
-function userData(nombre: string, edad: number, ocupation?: ocupacion, sex?: sexo) {
+interface User {
+    nombre: string;
+    edad: number;
+    ocupation?: ocupacion;
+    sex?: sexo;
+}
 
-    if (edad <= 18) {
-        console.log(`Nombre: ${nombre}, Edad: ${edad}, ocupación: ${ocupacion.EE}, sexo: ${sexo.M}`)
+function userData(user: User) {
+
+    if (user.edad <= 18) {
+        console.log(`Nombre: ${user.nombre}, Edad: ${user.edad}, ocupación: ${ocupacion.EE}, sexo: ${user.sex}`)
     } else {
-        console.log(`Nombre: ${nombre}, Edad:${edad}, ocupación: ${ocupacion.EU}, sexo: ${sexo.M}`)
+        console.log(`Nombre: ${user.nombre}, Edad:${user.edad}, ocupación: ${ocupacion.EU}, sexo: ${user.sex}`)
     }
 }
-userData('Raymon', 25);
+userData({ nombre: 'Raymon', edad: 25, sex: sexo.M });
 
 //Using function in a let variable
-let createUser = (name: string, edad: number, ocupation?: ocupacion, sex?: sexo): object => {
-    if (edad <= 18) {
+let createUser = (user: User): object => {
+    if (user.edad <= 18) {
         return {
-            name,
-            edad,
-            ocupacion: ocupacion.EE,
+            Nombre: user.nombre,
+            Edad: user.edad,
+            Ocupacion: ocupacion.EE,
             sexo: sexo.M
         }
     } else {
         return {
-            name,
-            edad,
-            ocupacion: ocupacion.EU,
+            Nombre: user.nombre,
+            Edad: user.edad,
+            Ocupacion: ocupacion.EU,
             sexo: sexo.M
         }
     }
 }
 
-const Raymon = createUser('Raymon', 17);
+const Raymon = createUser({ nombre: 'Raymon', edad: 17 });
+
 console.log(Raymon);
+
+function getAntoherUser(user: User) {
+    console.log(`[
+        Nombre: ${user.nombre},
+        Edad: ${user.edad},
+        Ocupacion: ${user.ocupation},
+        Sexo: ${user.sex}
+    ]`);
+}
+
+let Karla = {
+    nombre: 'Karla',
+    edad: 28,
+    ocupation: ocupacion.EE,
+    sex: sexo.F
+}
+
+getAntoherUser(Karla);
