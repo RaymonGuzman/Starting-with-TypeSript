@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Estudiantes = exports.Colegio = exports.Registro = exports.libro = exports.Materia = void 0;
 var Materia;
 (function (Materia) {
     Materia[Materia["LenguaEspa\u00F1ola"] = 0] = "LenguaEspa\u00F1ola";
@@ -21,21 +22,22 @@ var Materia;
     Materia[Materia["Ingl\u00E9s"] = 3] = "Ingl\u00E9s";
     Materia[Materia["Sociales"] = 4] = "Sociales";
     Materia[Materia["Naturaleza"] = 5] = "Naturaleza";
-})(Materia || (Materia = {}));
+})(Materia = exports.Materia || (exports.Materia = {}));
 var libro;
 (function (libro) {
     libro[libro["libro1"] = 0] = "libro1";
     libro[libro["libro2"] = 1] = "libro2";
     libro[libro["libro3"] = 2] = "libro3";
-})(libro || (libro = {}));
+})(libro = exports.libro || (exports.libro = {}));
 //Abstract para que no permita crear instancias de la misma y Private para que no pueda ser moficado
-var registro = /** @class */ (function () {
-    function registro(id, nombre) {
+var Registro = /** @class */ (function () {
+    function Registro(id, nombre) {
         this.id = id;
         this.nombre = nombre;
     }
-    return registro;
+    return Registro;
 }());
+exports.Registro = Registro;
 //Clase Colegio, que va a contener un conjuntos de Estudiantes
 var Colegio = /** @class */ (function (_super) {
     __extends(Colegio, _super);
@@ -48,7 +50,8 @@ var Colegio = /** @class */ (function (_super) {
         this.estudiantes.push(estudiantes);
     };
     return Colegio;
-}(registro));
+}(Registro));
+exports.Colegio = Colegio;
 var Estudiantes = /** @class */ (function (_super) {
     __extends(Estudiantes, _super);
     function Estudiantes(id, nombre, edad, materia) {
@@ -63,12 +66,13 @@ var Estudiantes = /** @class */ (function (_super) {
     };
     Estudiantes.libros = libro;
     return Estudiantes;
-}(registro));
-var Loyola = new Colegio(1, 'Loyola');
-var Carlos = new Estudiantes(1, 'Carlos Gonzalez', 23, Materia.LenguaEspañola);
-var Francisco = new Estudiantes(2, 'Francisco Gonzalez', 24, Materia.Matemáticas);
-Loyola.addStudent(Carlos);
-Loyola.addStudent(Francisco);
-console.log(Loyola);
-//Imprimiendo propiedad static
-console.log(Estudiantes.libros.libro1);
+}(Registro));
+exports.Estudiantes = Estudiantes;
+// let Loyola: Colegio = new Colegio(1, 'Loyola');
+// let Carlos: Estudiantes = new Estudiantes(1, 'Carlos Gonzalez', 23, Materia.LenguaEspañola);
+// let Francisco: Estudiantes = new Estudiantes(2, 'Francisco Gonzalez', 24, Materia.Matemáticas);
+// Loyola.addStudent(Carlos);
+// Loyola.addStudent(Francisco);
+// console.log(Loyola);
+// //Imprimiendo propiedad static
+// console.log(Estudiantes.libros.libro1);

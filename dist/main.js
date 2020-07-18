@@ -1,26 +1,7 @@
 "use strict";
-/*
-Working with TypeScript object vs JavaScript Object
-Enums allow us to define a set of named constants
-*/
-// object
-var persona;
-persona = {
-    nombre: 'Juan Perez',
-    edad: 24,
-    estatura: "'6'0'",
-    pais: 'República Dominicana',
-    estatus: 'Soltero'
-};
-//it can't be accesed calling persona.nombre!
-// console.log(persona.nombre);
-console.log(persona);
-var numeros = {
-    uno: 1,
-    dos: 2,
-    tres: 3,
-    cuatro: 4
-};
-console.log(numeros);
-//it can be accesed of this way!
-console.log(numeros.cuatro);
+Object.defineProperty(exports, "__esModule", { value: true });
+var class_inheritance_1 = require("./class-inheritance");
+var SantaRita = new class_inheritance_1.Colegio(1, 'Santa Rita');
+var Mauro = new class_inheritance_1.Estudiantes(1, 'Mauro Gonzalez', 27, class_inheritance_1.Materia.Naturaleza);
+SantaRita.addStudent(Mauro);
+console.log(SantaRita);

@@ -1,6 +1,6 @@
 export {};
 
-enum Materia {
+export enum Materia {
     LenguaEspañola,
     Matemáticas,
     Religion,
@@ -8,7 +8,7 @@ enum Materia {
     Sociales,
     Naturaleza
 }
-enum libro {
+export enum libro {
     libro1,
     libro2,
     libro3
@@ -16,7 +16,7 @@ enum libro {
 
 
 //Abstract para que no permita crear instancias de la misma y Private para que no pueda ser moficado
-abstract class registro {
+export abstract class Registro {
     protected id: number;
     protected nombre: string;
     constructor(id: number, nombre: string) {
@@ -25,10 +25,10 @@ abstract class registro {
     }
 }
 //Clase Colegio, que va a contener un conjuntos de Estudiantes
-class Colegio extends registro {
+export class Colegio extends Registro {
     estudiantes: Estudiantes[];
 
-    constructor(id: number, nombre: string,
+    constructor(id: number, nombre: string
     ) {
         super(id, nombre)
 
@@ -41,7 +41,7 @@ class Colegio extends registro {
 
 }
 
-class Estudiantes extends registro {
+export class Estudiantes extends Registro {
     static libros = libro;
     edad: number;
     materia: Materia;
@@ -67,12 +67,12 @@ class Estudiantes extends registro {
 
 }
 
-let Loyola: Colegio = new Colegio(1, 'Loyola');
-let Carlos: Estudiantes = new Estudiantes(1, 'Carlos Gonzalez', 23, Materia.LenguaEspañola);
-let Francisco: Estudiantes = new Estudiantes(2, 'Francisco Gonzalez', 24, Materia.Matemáticas);
-Loyola.addStudent(Carlos);
-Loyola.addStudent(Francisco);
-console.log(Loyola);
+// let Loyola: Colegio = new Colegio(1, 'Loyola');
+// let Carlos: Estudiantes = new Estudiantes(1, 'Carlos Gonzalez', 23, Materia.LenguaEspañola);
+// let Francisco: Estudiantes = new Estudiantes(2, 'Francisco Gonzalez', 24, Materia.Matemáticas);
+// Loyola.addStudent(Carlos);
+// Loyola.addStudent(Francisco);
+// console.log(Loyola);
 
-//Imprimiendo propiedad static
-console.log(Estudiantes.libros.libro1);
+// //Imprimiendo propiedad static
+// console.log(Estudiantes.libros.libro1);
