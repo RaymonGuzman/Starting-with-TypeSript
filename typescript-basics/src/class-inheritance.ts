@@ -28,7 +28,9 @@ export abstract class Registro {
 export class Colegio extends Registro {
     estudiantes: Estudiantes[];
 
-    constructor(id: number, nombre: string
+    constructor(
+        id    : number,
+        nombre: string
     ) {
         super(id, nombre)
 
@@ -43,25 +45,27 @@ export class Colegio extends Registro {
 
 export class Estudiantes extends Registro {
     static libros = libro;
-    edad: number;
+    edad   : number;
     materia: Materia;
 
-    constructor(id: number,
-        nombre: string,
-        edad: number,
-        materia: Materia) {
+    constructor(
+        id     : number,
+        nombre : string,
+        edad   : number,
+        materia: Materia
+        ) {
         super(id, nombre) //constructor de superclase
 
-        this.edad = edad;
+        this.edad    = edad;
         this.materia = materia;
     }
 
     getStudent() {
         return `[
-            id:${this.id},
-            nombre:${this.nombre},
-            edad:${this.edad},
-            materia:${this.materia}
+            id     : ${this.id},
+            nombre : ${this.nombre},
+            edad   : ${this.edad},
+            materia: ${this.materia}
         ]`;
     }
 

@@ -1,0 +1,14 @@
+"use strict";
+// import {Colegio,Estudiantes,Materia} from './class-inheritance';
+Object.defineProperty(exports, "__esModule", { value: true });
+const school_1 = require("./school");
+const student_1 = require("./student");
+const subject_1 = require("./subject");
+let SantaRita = new school_1.Colegio(1, 'Santa Rita');
+let Mauro = new student_1.Estudiantes(1, 'Mauro Gonzalez', 27, subject_1.Materia.Naturaleza);
+let Carlos = new student_1.Estudiantes(2, 'Carlos Gonzalez', 24, subject_1.Materia.Sociales);
+SantaRita.addStudent(Mauro);
+SantaRita.addStudent(Carlos);
+console.log(SantaRita);
+SantaRita.removeStudent(Mauro);
+console.log(SantaRita);
